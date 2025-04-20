@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { NavLink } from 'react-router';
 import { MdShoppingCart } from "react-icons/md";
 import { FaBookmark } from "react-icons/fa";
+import { CartContext } from '../Providers/Contexts';
 
 
 const Navbar = () => {
+  const {cart}=useContext(CartContext)
+  console.log(cart);
     return (
         <div className="navbar p-0 bg-base-100 shadow-sm max-w-screen-8xl mx-auto px-8 md:p-12 lg:p-16 xl:p-24 ">
   <div className="navbar-start">
@@ -41,8 +44,10 @@ const Navbar = () => {
       <li>
         <NavLink className={({isActive})=>(isActive?'text-blue-600':'')} to='/about'>About</NavLink>
       </li>
-      <li>
-        <NavLink className={({isActive})=>(isActive?'text-blue-600':'')} to='/cart'><MdShoppingCart size={20} /></NavLink>
+      <li className='relative'>
+        <NavLink className={({isActive})=>(isActive?'text-blue-600':'')} to='/cart'><MdShoppingCart size={20} />
+        <p>{cart.length}</p>
+        </NavLink>
       </li>
       <li>
         <NavLink className={({isActive})=>(isActive?'text-blue-600':'')} to='/favorites'><FaBookmark size={20} /></NavLink>

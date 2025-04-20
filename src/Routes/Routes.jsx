@@ -35,6 +35,7 @@ import About from "../Pages/About";
         },
         {
             path:"/phone-details/:id",
+            hydrateFallbackElement:<p>Loading, please wait....</p>,
             
             Component:PhoneDetails,
             loader:()=>fetch('../phones.json'),

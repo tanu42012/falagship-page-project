@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import bannerImg from '../assets/banner.png'
 import Button from './Ui/Button';
+import { MdBookmarkAdd } from "react-icons/md";
 
 const Hero = ({handleSearch}) => {
     const [searchText,setSearchText]=useState('');
